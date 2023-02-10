@@ -1,0 +1,215 @@
+<%- include('partials/header'); -%>
+  
+  <section class="section coming-soon" data-section="section3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-xs-12">
+          <div class="continer centerIt">
+            <div>
+              <h4>We have <em>Over a hundred </em>members of Tempest High School spread worldwide</h4>
+              <h3>It's your obligation to reach out to your classmates</h3>
+              <div class="counter">
+
+                <div class="days">
+                  <div class="value">00</div>
+                  <span>Days</span>
+                </div>
+
+                <div class="hours">
+                  <div class="value">00</div>
+                  <span>Hours</span>
+                </div>
+
+                <div class="minutes">
+                  <div class="value">00</div>
+                  <span>Minutes</span>
+                </div>
+
+                <div class="seconds">
+                  <div class="value">00</div>
+                  <span>Seconds</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="right-content">
+            <div class="top-content">
+              <h3>Where you formally a member of <em> Tempest High School?</em></h3>
+              <h6>Then apply to join the <br><em>Tempest Old Student Association</em> <br><b>TODAY</b> </h6>
+              
+            </div>
+            <form id="contact" method="POST">
+              <!--Registeration Area-->
+              <div class="row">
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="id" type="text" class="form-control" id="id-reg" placeholder="Your ID will be autogenerate" readonly>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="name" type="text" class="form-control" id="name-reg" placeholder="Your Full Name" required="required">
+                    <div id='error' class="name error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="address" type="text" class="form-control" id="address-reg" placeholder="your House Address" required="required">
+                    <div id='error' class="address error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="wnumber" type="text" class="form-control" id="wnumber-reg" placeholder="your whatsapp number" required="required">
+                    <div id='error' class="wnumber error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="socials" type="text" class="form-control" id="socials-reg" placeholder="drop social media handles">
+                    <div id='error' class="socials error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="email" type="text" class="form-control" id="email-reg" placeholder="Your Email*" required="required">
+                    <div id='error' class="email error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="occupation" type="text" class="form-control" id="occupation-reg" placeholder="your occupation" required="required">
+                    <div id='error' class="occupation error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="stateOfOrigin" type="text" class="form-control" id="stateOfOrigin-reg" placeholder="your State of Origin" required="required">
+                    <div id='error' class="stateOfOrigin error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="lga" type="text" class="form-control" id="lga-reg" placeholder="your Local Government Area" required="required">
+                    <div id='error' class="lga error"></div>
+                  </fieldset>
+                </div>
+                
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="DOB" type="month" class="form-control" id="DOB-reg" placeholder="Your Date of Birth">
+                    <div id='error' class="DOB error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="password" type="password" class="form-control" id="password-reg" placeholder="Your Password*" required="required">
+                    <div id='error' class="password error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="gradYear" type="year" class="form-control" id="gradYear-reg" placeholder="Your Graduating Year">
+                    <div id='error' class="gradYear error"></div>
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <button type="submit" id="form-submit" class="button">Submit</button>
+                  </fieldset>
+                </div>
+                
+              </div>
+              <br><br>
+                <h6>Already a verified member? <em><a href="/login">Login</a></em></h6>
+                  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer'); -%>
+
+<script>
+  const form = document.querySelector('form');
+  const nameError = document.querySelector('.name.error');
+  const addressError = document.querySelector('.address.error');
+  const wnumberError = document.querySelector('.wnumber.error');
+  const socialsError = document.querySelector('.socials.error');
+  const emailError = document.querySelector('.email.error');
+  const occupationError = document.querySelector('.occupation.error');
+  const stateOfOriginError = document.querySelector('.stateOfOrigin.error');
+  const lgaError = document.querySelector('.lga.error');
+  const DOBError = document.querySelector('.DOB.error');
+  const passwordError = document.querySelector('.password.error');
+  const gradYearError = document.querySelector('.gradYear.error');
+  
+  
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // reset errors
+    nameError.textContent = '';
+    addressError.textContent = '';
+    wnumberError.textContent = '';
+    socialsError.textContent = '';
+    emailError.textContent = '';
+    occupationError.textContent = '';
+    stateOfOriginError.textContent = '';
+    lgaError.textContent = '';
+    DOBError.textContent = '';
+    passwordError.textContent = '';
+    gradYearError.textContent = '';
+
+    // get values
+    const name = form.name.value;
+    const address = form.address.value;
+    const wnumber = form.wnumber.value;
+    const socials = form.socials.value;
+    const email = form.email.value;
+    const occupation = form.occupation.value;
+    const stateOfOrigin = form.stateOfOrigin.value;
+    const lga = form.lga.value;
+    const DOB = form.DOB.value;
+    const password = form.password.value;
+    const gradYear = form.gradYear.value;
+    
+
+    try {
+      const res = await fetch('/signup', { 
+        method: 'POST', 
+        body: JSON.stringify({ name, address, wnumber, socials, email, occupation, stateOfOrigin, lga, DOB, password, gradYear}),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.errors) {
+        nameError.textContent = data.errors.name;
+        addressError.textContent = data.errors.address;
+        wnumberError.textContent = data.errors.wnumber;
+        socialsError.textContent = data.errors.socials;
+        emailError.textContent = data.errors.email;
+        occupationError.textContent = data.errors.occupation;
+        stateOfOrigin.textContent = data.errors.stateOfOrigin;
+        lgaError.textContent = data.errors.lga;
+        DOBError.textContent = data.errors.DOB;
+        passwordError.textContent = data.errors.password;
+        gradYearError.textContent = data.errors.gradYear;
+      }
+      if (data.user) {
+        location.assign('/');
+      }
+
+    }
+    catch (err) {
+      console.log(err);
+    }
+
+  });
+</script>
